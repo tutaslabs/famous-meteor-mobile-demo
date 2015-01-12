@@ -1,0 +1,27 @@
+<Template name="appMainView" xmlns="http://www.w3.org/1999/html">
+{{#famousContext id='mainCtx'}}
+
+    {{#View size="[undefined,undefined]"}}
+    {{#Surface id="backing" size="[undefined,undefined]" class="backing" translate="[0,0,-20]"}} {{/Surface}}
+
+    {{>View id="sidebar" template="sidebar" size="[200,500]" origin="[0,0]" align="[0,0]" translate="[10,30,-5]"}}
+
+
+
+
+    {{#HeaderFooterLayout id="hfl" size="[undefined,undefined]" headerSize="50" footerSize="50"}}
+
+    {{>View template = "headerContent" target="header" size="[undefined,undefined]"}}
+
+
+    {{>View  template="rcHeadFootContent" target="content" size="[undefined,undefined]" translate="[0,0,-1]"}}
+
+    {{>View  template="footerContent" target="footer" size="[undefined,undefined]"}}
+
+
+
+    {{/HeaderFooterLayout}}
+    {{/View}}
+
+{{/famousContext}}
+    </Template>
