@@ -35,19 +35,8 @@ Template.appMainView.rendered = ->
       if App.hfl.get() is 0
         App.hfl.set window.innerWidth - (window.innerWidth*.30),{duration: 500,ease: "easeInOut"}
         FView.byId('backing').modifier.setTransform Famous.Transform.translate(0, 0,-10)
-        fhr.setContent '<<'
-        fhr.addClass 'headArrows'
         App.events.emit 'animate'
       else
-        gc = fht.getContent()
-        if typeof gc is 'object'
-          gc = gc.innerText
-        if gc is 'Page1'
-          fhr.setContent App.headerDefaultText
-        else
-          fhr.setContent 'Enjoy'
-
-        fhr.removeClass 'headArrows'
         App.hfl.set 0,{duration: 500,ease: "easeInOut"}
         Meteor.setTimeout ->
           FView.byId('backing').modifier.setTransform Famous.Transform.translate(0, 0,-2)
@@ -57,12 +46,12 @@ Template.appMainView.rendered = ->
       ,500
 
   App.events.on 'swipeleft', (page) =>
-    if page isnt 'page1'
-      fhr.setContent 'Enjoy'
-    else
-      fhr.setContent App.headerDefaultText
+
     fht.setContent page.charAt(0).toUpperCase() + page.slice(1)
-    fhr.removeClass 'headArrows'
+    if page is 'page1'
+      fhr.setContent App.headerDefaultText
+    else
+      fhr.setContent 'Enjoy'
     display page
 
   display = (page) ->

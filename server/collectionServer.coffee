@@ -8,4 +8,4 @@ Chat.allow
       return false
 
 Meteor.publish 'chat', ->
-  Chat.find()
+    Chat.find()
