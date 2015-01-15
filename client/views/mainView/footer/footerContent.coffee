@@ -4,3 +4,7 @@ Template.footerContent.rendered = ->
   target = fview.surface
   target.on "click", =>
     App.events.emit 'swipeleft','page1'
+    target.addClass 'hide'
+
+  App.events.on 'swipeleft',(c) ->
+    target.removeClass 'hide'

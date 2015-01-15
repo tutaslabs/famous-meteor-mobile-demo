@@ -4,4 +4,4 @@ Template.page1Content.rendered = ->
 
     h = $('.famous-container .famous-group')[0].scrollHeight
 
-    fvs.setSize [undefined, h]
+    fvs.setSize [undefined, 1200]
