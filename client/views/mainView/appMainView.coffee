@@ -5,7 +5,9 @@ Template.appMainView.rendered = ->
 #happens so fast appears to be animating down only
   Meteor.subscribe 'chat'
   App.hfl = new Famous.Transitionable 0
-#so menu doesn't show on background when scrolling
+#so menu doesn't show on background when scrolling main content past the scroll edges
+#bringing the backing up to cover the sidebar and be 'just' under the main content
+
   FView.byId('backing').modifier.setTransform Famous.Transform.translate(0, 0,-2)
   fview = FView.byId 'hfl'
 
@@ -34,13 +36,15 @@ Template.appMainView.rendered = ->
       Session.set 'mhfclicked',true
       if App.hfl.get() is 0
         App.hfl.set window.innerWidth - (window.innerWidth*.30),{duration: 500,ease: "easeInOut"}
+#move the backing 'back' under the sidebar menu so it displays
         FView.byId('backing').modifier.setTransform Famous.Transform.translate(0, 0,-10)
         App.events.emit 'animate'
       else
-        App.hfl.set 0,{duration: 500,ease: "easeInOut"}
-        Meteor.setTimeout ->
+        App.hfl.set 0,{duration: 500,ease: "easeInOut"},=>
+
+#bring the backing over the sidebar to hide it - could have just 'hid' the sidebar with CSS
           FView.byId('backing').modifier.setTransform Famous.Transform.translate(0, 0,-2)
-        ,600
+
       Meteor.setTimeout ->
         Session.set 'mhfclicked',false
       ,500

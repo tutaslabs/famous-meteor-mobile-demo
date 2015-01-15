@@ -1,3 +1,4 @@
+
 Meteor.startup ->
   Famous.Engine = famous.core.Engine
   Famous.View = famous.core.View
