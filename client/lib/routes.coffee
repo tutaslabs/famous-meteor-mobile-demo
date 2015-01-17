@@ -5,3 +5,6 @@ Router.route '/', ->
   Session.set 'currentHeadFootContentTemplate','page1ScrollView'
 
 
+Router.route '/lessonone', ->
+  this.render 'lessonOne'
+

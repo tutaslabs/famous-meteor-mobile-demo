@@ -1,3 +1,6 @@
 template(name="dribbleScrollView")
-    +Scrollview size="[undefined,undefined]"
-           +Surface id="dribble" template="dribbleContent" class='task' size="[undefined,true]"
+        +View size="[undefined,undefined]" origin="[0,0]" align="[0,0]"
+            +Surface translate="[0,0,-1]" size="[undefined,undefined]" class="bg-darkgray"
+                p
+            +Scrollview size="[undefined,undefined]"
+                +Surface id="dribble" template="dribbleContent" class='task' size="[undefined,true]"
