@@ -8,3 +8,8 @@ Router.route '/', ->
 Router.route '/lessonone', ->
   this.render 'lessonOne'
 
+Router.route '/lessontwo', ->
+  this.render 'lessonTwo'
+
+Router.route '/lessonthree', ->
+  this.render 'lessonThree'

@@ -1,0 +1,22 @@
+<Template name="footerContent3">
+
+    <!-- this is really acting like our footer backing surface because it fills the entire
+         footer view. We just add a little content and background color.
+    -->
+    {{#Surface id="footerS" class="footer"}}
+    Footer
+    {{/Surface}}
+    <!-- Our 'home' button that is initially rendered hidden (display: none) using our 'hide' class-->
+    <!-- The button surface is created with a z-index of 10 (translate function) so that it
+         always displays over everything else. The origin and align are in relation to the parent
+         footer view's position and size as defined in the appMainView template.
+    -->
+    {{#Surface id="b1"  class="btn btn-primary footbtn hide" translate="[0,0,10]" size="[80,40]"
+    origin="[0,0]" align="[.7,.1]"}}
+    Home
+    {{/Surface}}
+
+
+
+
+</Template>
