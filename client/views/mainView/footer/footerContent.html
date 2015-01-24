@@ -1,11 +1,14 @@
 <Template name="footerContent">
 
-    {{#Surface target="footer"  class="footer"}}
+<!-- this is really acting like our footer backing surface because it fills the entire
+     footer view. We just add a little content and background color.
+-->
+    {{#Surface id="footerS" class="footer"}}
     Footer
     {{/Surface}}
-
-    {{#Surface id="b1" target="footer" class="btn btn-primary footbtn hide" translate="[0,0,10]" size="[80,40]" origin="[0,0]" align="[.7,.1]"}}
-    Page 1
+<!-- Our 'home' button that is initially rendered hidden (display: none) using our 'hide' class-->
+    {{#Surface id="b1"  class="btn btn-primary footbtn hide" translate="[0,0,10]" size="[80,40]" origin="[0,0]" align="[.7,.1]"}}
+    Home
     {{/Surface}}
 
 

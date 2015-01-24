@@ -1,8 +1,22 @@
 <Template name="rcHeadFootContent">
 
+<!-- Create our render controller (this is a famous-views shortcut)
+     Use a helper function to get the transition type
+-->
     {{#RenderController transition=getTransition}}
 
+<!-- the following is some very weird spacebars/Blaze rendering stuff. Courtesy of the creator
+     of famous-views for using this. Basically it works like this: use a helper function
+     to get the value of currentTemplate and assign it to a data key called 'name'. We can
+     pass arrays into the template which is what we are doing here. Use a helper function
+     (showTemplate) that calls the Meteor Template function to get a template object
+     based on it's name. Then it gets rendered!
+
+
     {{>showTemplate name=currentTemplate}}
+-->
+
+    {{> Template.dynamic template=currentTemplate}}
 
     {{/RenderController}}
 

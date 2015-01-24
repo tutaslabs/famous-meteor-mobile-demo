@@ -1,0 +1,30 @@
+<Template name="homeScrollView">
+
+<!-- we create a view wrapper here so we can add a backing surface along with the
+     ScrollView. Remember - only Views can contain multiple renderables
+-->
+    {{#View size="[undefined,undefined]" origin="[0,0]" align="[0,0]"}}
+<!-- The need for a backing surface will become apparent when we do the chat code.
+     All we are doing with the backing surface is setting the background color.
+     The z-index is -1 which makes it display behind our content which is set to 0.
+-->
+    {{#Surface id="backing2" translate="[0,0,-1]" size="[undefined,undefined]" class="bg-darkgray" }}
+       {{/Surface}}
+
+<!-- Create our ScrollView (the reason for this template). The scrollview size fills the
+     entire render controller that fills the entire header/footer content area.
+-->
+
+    {{#Scrollview size="[undefined,undefined]"}}
+<!-- display some mock text so we know we are on the home page. Please don't ask me why the
+    class 'task' is being used. To lazy to rename it in CSS I guess! Just being real here.
+-->
+
+    {{>Surface template='homeContent' id="page1" class='task' size="[undefined,auto]" }}
+
+
+    {{/Scrollview}}
+
+{{/View}}
+
+</Template>

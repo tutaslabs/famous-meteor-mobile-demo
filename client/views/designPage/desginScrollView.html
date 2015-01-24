@@ -3,10 +3,21 @@
 
     {{#View size="[undefined,undefined]" origin="[0,0]" align="[0,0]"}}
 
-    {{#Surface id="backing2" translate="[0,0,-1]" size="[undefined,undefined]" class="bg-darkgray" }}{{/Surface}}
-    {{#Scrollview size="[undefined,undefined]"}}
+    {{#Surface id="backing2" translate="[0,0,-1]" size="[undefined,undefined]"
+         class="bg-darkgray" }}{{/Surface}}
+    {{#Scrollview}}
 
-    {{>Surface id="design" template="designContent" class='task' size="[undefined,true]" }}
+<!--    {{#Surface size="[undefined,undefined]" class='task' }}DESIGN PAGE{{/Surface}} -->
+
+<!--    {{>Surface id="design" template="designContent" class='task' size="[undefined,auto]" }}-->
+
+    {{#Surface id="design" class='task' size="[undefined,auto]" }}
+
+            {{#markdown}}{{content}}{{/markdown}}
+
+    {{/Surface}}
+
+
 
     {{/Scrollview}}
 {{/View}}

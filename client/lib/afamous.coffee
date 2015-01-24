@@ -7,7 +7,7 @@ Meteor.startup ->
   Famous.Transform = famous.core.Transform
   Famous.Draggable = famous.modifiers.Draggable
   Famous.StateModifier = famous.modifiers.StateModifier
-  Famous.ModifierChain = famous.modifiers.ModifierChain
+
   Famous.RenderController = famous.views.RenderController
   Famous.EventHandler = famous.core.EventHandler
 
@@ -20,12 +20,9 @@ Meteor.startup ->
   Famous.GenericSync     = famous.inputs.GenericSync
   Famous.MouseSync = famous.inputs.MouseSync
   Famous.TouchSync = famous.inputs.TouchSync
-
-
   Famous.Timer           = famous.utilities.Timer
 
   Famous.FastClick       = famous.inputs.FastClick
-  Famous.Transitionable.registerMethod 'spring',famous.transitions.SpringTransition
 
   Famous.GenericSync.register
     mouse: Famous.MouseSync
