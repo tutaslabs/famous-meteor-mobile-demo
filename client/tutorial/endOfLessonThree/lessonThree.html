@@ -1,0 +1,24 @@
+<Template name="lessonThree" xmlns="http://www.w3.org/1999/html">
+    {{#famousContext id='mainCtx'}}
+
+
+
+    {{#Surface id="backing" size="[undefined,undefined]" class="backing" translate="[0,0,-2]"}} {{/Surface}}
+
+    {{>View id="sidebar" template="sidebar3" size="[200,500]" origin="[0,0]" align="[0,0]" translate="[10,30,-5]"}}
+
+
+    {{#HeaderFooterLayout id="hfl" size="[undefined,undefined]" headerSize="50" footerSize="50"}}
+
+    <!-- we will delete the next three lines after testing -->
+    {{>View template = "footerContent3" target="footer" size="[undefined,undefined]"}}
+    {{>View template = "headerContent3" target="header" size="[undefined,undefined]"}}
+    {{#Surface target='content' style='text-align: center; font-size: xx-large;color: white;padding-top:100px;'}}CONTENT{{/Surface}}
+
+    {{/HeaderFooterLayout}}
+
+
+
+
+    {{/famousContext}}
+</Template>
