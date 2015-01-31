@@ -99,5 +99,24 @@ Template.appMainView.rendered = ->
     # animate our header/footer view (hfl) back to the left (it's origin)
     # take 500 milliseconds and when finished (via callback)
     # tell the render controller to load our new template
-    hfl.set 0,{duration: 500},=>
-      Session.set 'currentHeadFootContentTemplate',page+'ScrollView'
+    if page isnt 'design'
+      hfl.set 0,{duration: 500},=>
+        Session.set 'currentHeadFootContentTemplate',page+'ScrollView'
+    else
+      sp =
+        params:
+          "token":'iamgood'
+
+    # the information we are requesting - we will be getting back a JSON string
+    # of the data (text of post/article whatever)
+      url = Session.get('serverURL')+'/rest/design/'
+
+    # perform the request to the server then render
+      HTTP.call 'GET',url,sp,(error,result) =>
+       if error
+          t = 'Please check your internet connection'
+       else
+          t = JSON.parse(result.content).text
+       Session.set 'design',t
+       hfl.set 0,{duration: 500},=>
+          Session.set 'currentHeadFootContentTemplate','designScrollView'
