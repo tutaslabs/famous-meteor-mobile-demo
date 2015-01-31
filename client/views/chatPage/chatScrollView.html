@@ -1,28 +1,38 @@
 <Template name="chatScrollView">
-
-    {{#View size="[undefined,undefined]" origin="[0,0]" align="[0,0]"}}
-
+    {{#famousContext id='mainCtx'}}
 
 
 
-    {{#Surface id="backing2" translate="[0,0,-1]" size="[undefined,undefined]" class="bg-darkgray" }}{{/Surface}}
-    {{#Scrollview proportions="[1,.8]" size="[undefined,undefined]" origin="[0,0]" align="[0,0]"}}
+
+
+
+   <!-- {{#Surface id="backing2" translate="[0,0,-1]" size="[undefined,undefined]" class="bg-darkgray" }}{{/Surface}} -->
+    {{#HeaderFooterLayout id="hfl" size="[undefined,undefined]" headerSize="80" footerSize="50"}}
+
+    {{#View  target="header" size="[undefined,80]"  }}
+    {{#Surface id="backing1" translate="[0,0,18]"  size="[undefined,undefined]" class="headerData" }}{{/Surface}}
+    {{>Surface template="enterChat"  origin="[0,0]" align="[0.05,.2]" translate="[0,0,20]"}}
+    {{/View}}
+
+
+    {{#Scrollview  target="content" size="[undefined,undefined]" origin="[0,0]" align="[0,0]"}}
 
 
     {{#famousEach items}}
     {{>Surface  template="chatItemContent" size="[undefined,100]" modifier="Modifier"}}
     {{/famousEach}}
 
-
-
     {{/Scrollview}}
 
 
-        {{#View proportions="[1,.1]"  origin="[0,0]" align="[0,.9]"}}
-            {{#Surface id="backing1" translate="[0,0,18]"  size="[undefined,undefined]" class="headerData" }}{{/Surface}}
-            {{>Surface template="enterChat"  origin="[0,0]" align="[0.05,.2]" translate="[0,0,20]"}}
-        {{/View}}
+    {{>View size="[undefined,undefined]" target="footer" template="chatFoot"}}
 
-    {{/View}}
+    {{/HeaderFooterLayout}}
+
+
+
+
+
+    {{/famousContext}}
 
 </Template>

@@ -1,2 +1,5 @@
-Template.chatScrollView.items = ->
-  query = Chat.find {},{sort: {createdAt: 1}}
+Template.chatScrollView.helpers
+  'items': ->
+    query = Chat.find {}
+
+

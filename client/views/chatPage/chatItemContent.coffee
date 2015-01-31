@@ -13,10 +13,20 @@ Template.chatItemContent.rendered = ->
 
   fview.onDestroy = ->
     fview = this
+
     t.set -800,{duration: 500, curve: 'easeOut'},->
       fview.destroy()
+      Router.go '/chat'
+
+
 
 Template.chatItemContent.events
   'click #ibtn':  (evt,tmpl) ->
     t = this._id
-    Meteor.call 'removeChat',t
+    if App.ebtn is false
+      Meteor.call 'removeChat',t
+      App.ebtn = true
+    Meteor.setTimeout ->
+      App.ebtn = false
+    ,500
+

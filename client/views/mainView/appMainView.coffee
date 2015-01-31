@@ -88,6 +88,10 @@ Template.appMainView.rendered = ->
       ,200
 
   App.events.on 'swipeleft', (page) =>
+
+    if page is 'chat'
+      Router.go '/chat'
+      return
     # the sidebar is sending us the template name (page) in the event
     # update our header text fields
     labelS.setContent page.charAt(0).toUpperCase() + page.slice(1)
